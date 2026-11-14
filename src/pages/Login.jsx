@@ -22,18 +22,20 @@ function Login() {
 
     setError("");
 
-    try {
-      const response = await fetch("http://localhost:8080/login", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          loginId: loginId,
-          password: password,
-        }),
-      });
+   try {
+  const API_URL = "https://sample-app-backend-java.onrender.com";
+
+  const response = await fetch(`${API_URL}/login`, {
+    method: "POST",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      loginId: loginId,
+      password: password,
+    }),
+  });
 
       const data = await response.json();
 
