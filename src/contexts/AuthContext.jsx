@@ -2,6 +2,9 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext(null);
 
+// RenderのバックエンドURL
+const API_URL = "https://sample-app-backend-java.onrender.com";
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -9,7 +12,7 @@ export function AuthProvider({ children }) {
   // ログイン状態を確認する
   const checkAuth = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/auth/me", {
+      const response = await fetch(`${API_URL}/api/auth/me`, {
         method: "GET",
         credentials: "include",
       });
@@ -30,7 +33,6 @@ export function AuthProvider({ children }) {
 
   // アプリ起動時にログイン状態を確認
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     checkAuth();
   }, []);
 
@@ -49,7 +51,7 @@ export function AuthProvider({ children }) {
   );
 }
 
-// ★重要：useAuthをexportする
+// useAuthをexportする
 // eslint-disable-next-line react-refresh/only-export-components
 export function useAuth() {
   return useContext(AuthContext);
