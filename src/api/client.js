@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080";
+const API_URL = "https://sample-app-backend-java.onrender.com";
 
 // API通信確認
 export async function checkApiConnection() {
