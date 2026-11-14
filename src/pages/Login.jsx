@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
+const API_URL = "https://sample-app-backend-java.onrender.com";
+
 function Login() {
   const navigate = useNavigate();
-
-  // AuthContextから認証状態の更新機能を取得
   const { checkAuth } = useAuth();
 
   const [loginId, setLoginId] = useState("");
@@ -22,20 +22,18 @@ function Login() {
 
     setError("");
 
-   try {
-  const API_URL = "https://sample-app-backend-java.onrender.com";
-
-  const response = await fetch(`${API_URL}/login`, {
-    method: "POST",
-    credentials: "include",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      loginId: loginId,
-      password: password,
-    }),
-  });
+    try {
+      const response = await fetch(`${API_URL}/login`, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          loginId,
+          password,
+        }),
+      });
 
       const data = await response.json();
 
@@ -44,11 +42,9 @@ function Login() {
         return;
       }
 
-      // ログイン成功後、認証状態を更新
       await checkAuth();
-
-      // ログイン状態を確認してから画面遷移
       navigate("/customers");
+
     } catch (err) {
       console.error("ログインエラー:", err);
       setError("API通信に失敗しました。");
