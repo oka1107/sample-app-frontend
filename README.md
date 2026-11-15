@@ -47,15 +47,8 @@ Git
 GitHub
 
 # ER図
-+-------------------+
-|      client       |
-+-------------------+
-| id                |
-| client_name       |
-| grant_name        |
-| price             |
-| deadline          |
-+-------------------+
+![Uploading ER図.drawio.png…]()
+
 
 # インフラ構成図
 利用者
