@@ -1,16 +1,87 @@
-# React + Vite
+補助金管理システム
+補助金の申請状況を一元管理し、申請漏れを防ぐWebアプリケーション
+アプリケーション概要
+企業ごとの補助金申請情報を管理するWebアプリケーションです。
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+申請中の補助金名、補助金額、申請期限を一覧で確認でき、管理業務の効率化を目的としています。
 
-Currently, two official plugins are available:
+開発した背景・理由
+中小企業では複数の補助金申請を同時に進めることがあり、Excelや紙で管理すると申請期限の見落としが発生する可能性があります。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+そこで、補助金情報を一元管理し、申請状況を簡単に確認できるシステムを開発しました。
 
-## React Compiler
+また、ReactとSpring Bootを用いたフロントエンド・バックエンド分離構成の学習も目的としています。
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+アプリケーションURL
+本番環境
+未公開
 
-## Expanding the ESLint configuration
+ローカル環境
+Frontend
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+http://localhost:5173
+
+Backend
+
+http://localhost:8080
+
+デモ画像
+一覧画面
+※画面完成後にスクリーンショットを追加予定
+
+詳細画面
+※画面完成後にスクリーンショットを追加予定
+
+主な使用技術
+フロントエンド
+React
+JavaScript
+Vite
+バックエンド
+Java
+Spring Boot
+データベース
+H2 Database
+その他
+Git
+GitHub
+ER図
++-------------------+
+|      client       |
++-------------------+
+| id                |
+| client_name       |
+| grant_name        |
+| price             |
+| deadline          |
++-------------------+
+インフラ構成図
+利用者
+  ↓
+React (Vite)
+  ↓ API通信
+Spring Boot
+  ↓
+H2 Database
+API一覧
+メソッド	URL	説明
+GET	/clients	補助金一覧取得
+ローカル環境での起動方法
+cd sample-app
+mvn spring-boot:run
+フロントエンド起動
+cd subsidy-client
+npm install
+npm run dev
+起動確認
+http://localhost:5173
+今後の改善予定
+補助金登録機能
+補助金更新機能
+補助金削除機能
+検索機能
+ページネーション機能
+入力バリデーション機能
+AWS環境へのデプロイ
+
+
