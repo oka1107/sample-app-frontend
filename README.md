@@ -19,7 +19,7 @@
 # ローカル環境
 Frontend
 
-http://localhost:5173
+https://sample-app-frontend-one.vercel.app/login
 
 Backend
 
@@ -69,7 +69,7 @@ cd subsidy-client
 npm install
 npm run dev
 # 起動確認
-http://localhost:5173
+https://sample-app-frontend-one.vercel.app/login
 # 今後の改善予定
 補助金登録機能
 補助金更新機能
