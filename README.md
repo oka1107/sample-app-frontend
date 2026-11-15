@@ -45,6 +45,7 @@ H2 Database
 その他
 Git
 GitHub
+
 # ER図
 +-------------------+
 |      client       |
@@ -55,6 +56,7 @@ GitHub
 | price             |
 | deadline          |
 +-------------------+
+
 # インフラ構成図
 利用者
   ↓
